@@ -1,11 +1,14 @@
 {
   "name": "val-pass",
-  "version": "2.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "2.0.1",
+  "description": "Password Validation",
+  "exports": {
+    "require": "./index.cjs",
+    "import": "./index.mjs"
   },
+  "main": "./index.cjs",       
+  "module": "./index.mjs",       
+  "type": "module",              
   "author": "Shubham Patil",
-  "license": "ISC",
-  "description": "Password Validation"
+  "license": "ISC"
 }

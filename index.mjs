@@ -1,4 +1,4 @@
- function validatePassword (password,length) {
+ export function validatePassword (password,length) {
 
     if(typeof password!="string"){
         password=String(password)
@@ -13,6 +13,7 @@
     let hasNum = false;
     let hasSpecial = false;
     let hasLength=false
+    let hasNoSpace=false
     
 
     for (let char of password) {
@@ -20,19 +21,27 @@
       else if (upperCase.includes(char)) hasUpper = true;
       else if (numbers.includes(char)) hasNum = true;
       else if (specialChars.includes(char)) hasSpecial = true;
+   
     }
+
      if(length) if(password.length>=length){
       hasLength=true
      }
 
+     if(!password.includes(" ")){
+        hasNoSpace=true
+     }
+
+    // console.log(password.includes("a"));
+    
     return {
       hasSpecial,
       hasLower,
       hasNum,
       hasUpper,
       validateAll(){
-
-        if(hasLower && hasUpper && hasNum && hasSpecial  ){
+        // console.log(hasNoSpace);
+        if(hasLower && hasUpper && hasNum && hasSpecial && hasNoSpace){
           if(length){
             if(hasLength) return true
             else return false
@@ -53,6 +62,7 @@
           else if(!hasUpper) return new Error(`Password does not contain any Upper case`)
           else if(!hasSpecial) return new Error(`Password does not contain any special character`)
           else if(!hasNum) return new Error(`Password does not contain any number`)
+          else if(!hasNoSpace) return new Error(`Password should not have space`)
           else return "No Error Detected"
           }
        }
@@ -61,6 +71,8 @@
           else if(!hasUpper) return new Error(`Password does not contain any Upper case`)
           else if(!hasSpecial) return new Error(`Password does not contain any special character`)
           else if(!hasNum) return new Error(`Password does not contain any number`)
+          else if(!hasNoSpace) return new Error(`Password should not have space`)
+          
           else return "No Error Detected"
         }
      
@@ -76,6 +88,8 @@
           else if(!hasUpper) return `Password does not contain any Upper case`
           else if(!hasSpecial) return `Password does not contain any special character`
           else if(!hasNum) return `Password does not contain any number`
+          else if(!hasNoSpace) return `Password should not have space`
+
           else return "No Error Detected"
           }
        }
@@ -84,6 +98,8 @@
           else if(!hasUpper) return `Password does not contain any Upper case`
           else if(!hasSpecial) return `Password does not contain any special character`
           else if(!hasNum) return `Password does not contain any number`
+          else if(!hasNoSpace) return `Password should not have space`
+
           else return "No Error Detected"
         }
      
@@ -92,6 +108,3 @@
     };
   };
 
-  module.exports={
-    validatePassword
-  }

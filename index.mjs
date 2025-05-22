@@ -103,6 +103,26 @@
           else return "No Error Detected"
         }
      
+      },
+      getAllValidationErrorMessage(){
+   
+        let errorObj=[]
+           if(length){
+        if(!hasLength){errorObj.push(`Password Length is less than ${length}`)}
+      }  
+        if(!hasLower) {errorObj.push(`Password does not contain any Lower case`)}
+        if(!hasUpper){ errorObj.push(`Password does not contain any Upper case`)}
+        if(!hasSpecial){errorObj.push( `Password does not contain any special character`)}
+        if(!hasNum) {errorObj.push(`Password does not contain any number`)}
+        if(!hasNoSpace){errorObj.push( `Password should not have space`)}
+   
+        // console.log(errorObj);
+        if(errorObj.length){
+          return errorObj
+        }else{
+          return `No Error Detected`
+        }
+        
       }
       
     };

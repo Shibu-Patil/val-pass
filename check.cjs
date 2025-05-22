@@ -3,9 +3,12 @@ const {validatePassword}=require("val-pass")
 // console.log(validatePassword());
 
 
-let {validateAll,getErrorMessage}=validatePassword("Shubham@11")
+let {validateAll,getErrorMessage,getAllValidationErrorMessage}=validatePassword("Shubha@1")
 
 console.log(validateAll());
 console.log(getErrorMessage());
+
+console.log(getAllValidationErrorMessage());
+
 
 

@@ -118,7 +118,7 @@
    
         // console.log(errorObj);
         if(errorObj.length){
-          return errorObj
+          return errorObj.join(",")
         }else{
           return `No Error Detected`
         }

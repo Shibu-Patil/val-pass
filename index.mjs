@@ -108,17 +108,21 @@
    
         let errorObj=[]
            if(length){
-        if(!hasLength){errorObj.push(`Password Length is less than ${length}`)}
+        if(!hasLength){errorObj.push(`${length} character`)}
       }  
-        if(!hasLower) {errorObj.push(`Password does not contain any Lower case`)}
-        if(!hasUpper){ errorObj.push(`Password does not contain any Upper case`)}
-        if(!hasSpecial){errorObj.push( `Password does not contain any special character`)}
-        if(!hasNum) {errorObj.push(`Password does not contain any number`)}
-        if(!hasNoSpace){errorObj.push( `Password should not have space`)}
+        if(!hasLower) {errorObj.push(`Lower case`)}
+        if(!hasUpper){ errorObj.push(`Upper case`)}
+        if(!hasSpecial){errorObj.push( `special character`)}
+        if(!hasNoSpace){errorObj.push( `no space`)}
+        if(!hasNum) {errorObj.push(`number`)}
    
         // console.log(errorObj);
         if(errorObj.length){
-          return errorObj.join(",")
+          let srt=`Password must contain ${errorObj.reverse().join(",").replace(","," and ").split(",").reverse().join(", ")}`
+          // console.log(srt);
+          
+          // return errorObj.join(",")
+          return srt
         }else{
           return `No Error Detected`
         }
